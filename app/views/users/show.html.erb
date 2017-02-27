@@ -4,7 +4,7 @@
 
 <% @user.photos.each do |photo| %>
 <ul>
-  <li> <%= photo.image %></li>
+  <li> <img src="<%= photo.image %>" ></li>
   <li><%= photo.caption %></li>
 </ul>
 <% end %>
