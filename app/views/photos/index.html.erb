@@ -18,19 +18,28 @@
       <% @photos.each do |photo| %>
       <div class = "panel">
         <div class = "panel-heading">
-          <%= photo.user.username %> 
+          <%= photo.user.username %>
           <%= time_ago_in_words(photo.created_at)  %> ago
         </div>
 
         <div><img src ="<%= photo.image %>"></div>
         <div> <%= photo.caption %></div>
-        <!-- <td>
+        <div>
+          <% photo.comments.each do |comment| %>
+         <ul class="media-list">
+           <li class="media-heading"> <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %></li>
+           <li class = "media-body"> <%= comment.body %></li>
+         </ul>
+         <% end %>
+
+        </div>
+        <div>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <% if current_user.id == photo.user_id %>
             <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <% end %>
-        </td> -->
+        </div>
       </div>
       <% end %>
     </table>
