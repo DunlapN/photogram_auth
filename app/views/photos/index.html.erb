@@ -17,7 +17,10 @@
 
       <% @photos.each do |photo| %>
       <div class = "panel">
-        <div class = "panel-heading"><%= photo.user.username %> </div>
+        <div class = "panel-heading">
+          <%= photo.user.username %> 
+          <%= time_ago_in_words(photo.created_at)  %> ago
+        </div>
 
         <div><img src ="<%= photo.image %>"></div>
         <div> <%= photo.caption %></div>
