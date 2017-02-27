@@ -10,6 +10,7 @@ class User < ApplicationRecord
          has_many :photos, :class_name => "Photo", :foreign_key => "user_id"
          has_many :photos, :through => :likes
          has_many :photos, :through => :comments
+         has_many :liked_photos, :through => :likes, :source => :photo
 
          validates :username, :presence => true, :uniqueness => true
 
