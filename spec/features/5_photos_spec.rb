@@ -160,7 +160,6 @@ feature "Photos:", js: show_tests_in_browser do
 
     visit "/photos"
     find(".fa-heart-o").find(:xpath,".//..").click
-
     expect(page).to have_css(".fa-heart")
   end
 
