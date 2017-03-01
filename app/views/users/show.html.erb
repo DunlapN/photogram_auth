@@ -1,10 +1,11 @@
 <h1><%= @user.username %></h1>
 
 <h2>photos</h2>
-
-<% @user.photos.each do |photo| %>
 <ul>
+<% @user.photos.each do |photo| %>
+
   <li> <img src="<%= photo.image %>" ></li>
   <li><%= photo.caption %></li>
-</ul>
+
 <% end %>
+</ul>
