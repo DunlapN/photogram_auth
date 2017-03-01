@@ -28,13 +28,12 @@
 
         <% if photo.fans.include?(current_user)  %>
 
-        <form action="/delete_like/<%= photo.likes.find_by(:user_id => current_user.id).id %>" method="post">
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-          <button type="submit" class = "like_button"   name="button" ><i class="fa fa-heart" aria-hidden="true"></i></button>
-        </form>
+      <a href="/delete_like/<%= photo.likes.find_by(:user_id => current_user.id).id %>">
+        <i class="fa-heart fa" aria-hidden="true"></i>
+      </a>
 
         <% else %>
-        
+
         <form action="/create_like" method="post">
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
@@ -71,13 +70,13 @@
           <input type="hidden" id="user_id" name="user_id"  class="form-control" value="<%= current_user.id %>">
       <!-- Label and input for body -->
           <div class="form-group">
-            <input type = "text" id="body" name="body" placeholder="Add a Comment..." class="form-control" rows="3"></textarea>
+            <input type = "text" id="body" name="body" placeholder="Add a comment..." class="form-control" rows="3"></textarea>
           </div>
 
 
 
           <button type="submit" class="btn btn-default">
-             <i class = "fa -commenting -o fa"><i>
+             <i class = "fa-commenting-o fa"></i>
           </button>
           or
           <a href="/comments">Cancel</a>
